@@ -9,10 +9,12 @@ namespace Quest
     {
         static void Main(string[] args)
         {
+
             Console.WriteLine("Welcome to Adventure Quest! What is your name?");
             string userName = Console.ReadLine();
 
             ExecuteAdventure();
+
             void ExecuteAdventure()
             {
                 // Create a few challenges for our Adventurer's quest
@@ -84,15 +86,22 @@ namespace Quest
                 {
                     Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
                 }
-            }
-            Console.WriteLine("Would you like to repeat the quest? (Y/N)");
-            string answerToRepeatChallenege = Console.ReadLine().ToLower();
 
-            while (answerToRepeatChallenege == "y")
-            {
-                Console.WriteLine("Okay, let's try it again!");
-                ExecuteAdventure();
-                continue;
+                Console.WriteLine("Would you like to repeat the quest? (Y/N)");
+                string answerToRepeatChallenege = Console.ReadLine().ToLower();
+
+                if (answerToRepeatChallenege != "y")
+                {
+                    Console.WriteLine("Toodles!");
+                    return;
+                }
+
+                else if (answerToRepeatChallenege == "y")
+                {
+                    Console.WriteLine("Okay, let's try it again!");
+                    ExecuteAdventure();
+                }
+
             }
         }
     }
